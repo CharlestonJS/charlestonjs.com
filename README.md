@@ -71,9 +71,11 @@ make install`
 ----------Make sure that you can run npm without typing sudo-------
 Run the following:
 
-`sudo chown -R ``whoami`` ~/.npm`
+**NOTE** run the command `whoami` surrounded by the tick mark underneath the ~ key
 
-`sudo chown -R ``whoami`` /usr/local/lib/node_modules`
+`sudo chown -R `whoami` ~/.npm`
+
+`sudo chown -R `whoami` /usr/local/lib/node_modules`
 
 
 If you have any problems understanding how to add new stuff to this setup, check out the excellent article written by J. Cole Morrison, found here:
