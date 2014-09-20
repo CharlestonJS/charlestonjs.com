@@ -19,7 +19,7 @@ INSTALLATION:
   EG: `cd client`
   - check to see if you have installed correctly
     : run the following:
-      * `grunt`
+      * `grunt test`
       (when you run grunt, it just makes sure everything is installed correctly. if anything is missing, INSTALL IT)
       * `grunt serve`
 3. Set up server
