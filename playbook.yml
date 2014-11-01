@@ -1,0 +1,4 @@
+---
+- name: Charleston JS Server
+  hosts: all
+  sudo: yes
