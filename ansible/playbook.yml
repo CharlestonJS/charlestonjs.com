@@ -1,0 +1,11 @@
+---
+- name: Charleston JS Server
+  hosts: all
+  sudo: yes
+  user: vagrant
+  roles:
+    - system
+    - nginx
+    - nodejs
+    - mongo
+    - cleanup

@@ -1,0 +1,3 @@
+---
+  - name: Cleaning up
+    shell: apt-get clean && apt-get autoclean

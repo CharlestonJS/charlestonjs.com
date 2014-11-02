@@ -1,0 +1,30 @@
+---
+  - name: Install necessary system software
+    apt: update_cache=yes upgrade=yes force=yes
+
+  - name: Install locales
+    apt: name=locales force=yes state=present
+
+  - name: Set timezone to eastern
+    shell: echo "US/Eastern" > /etc/timezone \
+           dpkg-reconfigure -f noninteractive tzdata \
+           export LANGUAGE=en_US.UTF-8; \
+           export LANG=en_US.UTF-8; \
+           export LC_ALL=en_US.UTF-8; \
+           locale-gen en_US.UTF-8; \
+           DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
+
+  - name: Installing python software
+    apt: name=python-software-properties force=yes state=present
+
+  - name: Install software properties
+    apt: name=software-properties-common force=yes state=present
+
+  - name: Install build essential
+    apt: name=build-essential
+
+  - name: Install zlib
+    apt: name=zlibc force=yes state=present
+
+  - name: Install supervisor
+    apt:  name=supervisor force=yes state=present
