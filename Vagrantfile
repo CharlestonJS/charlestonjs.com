@@ -11,8 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 35729, host: 35729
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  #config.vm.synced_folder "server", "/var/www/charlestonjs/server"
-  #config.vm.synced_folder "client", "/var/www/charlestonjs/client"
+  config.vm.synced_folder "server", "/var/www/charlestonjs/server"
+  config.vm.synced_folder "client", "/var/www/charlestonjs/client"
 
   config.vm.provider "virtualbox" do |vb|
     vb.name = "charlestonjs"
