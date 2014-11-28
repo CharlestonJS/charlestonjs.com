@@ -9,6 +9,16 @@
   - name: Install application dependencies
     npm: path=/var/www/html/charlestonjs/api
 
-  - name: Install supervisor config
+  - name: Install supervisor api config
     copy: src=api.conf dest=/etc/supervisor/conf.d/api.conf
     ignore_errors: yes
+
+  - name: Install supervisor nginx config
+    copy: src=nginx.conf dest=/etc/supervisor/conf.d/nginx.conf
+    ignore_errors: yes
+
+  - name: Remove default nginx config
+    shell: rm /etc/nginx/nginx.conf
+
+  - name: Install custom nginx config
+    copy: src=nginx.conf dest=/etc/nginx/nginx.conf

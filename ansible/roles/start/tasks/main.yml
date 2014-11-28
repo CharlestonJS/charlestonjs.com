@@ -1,3 +1,6 @@
 ---
-  - name: Start api
-    supervisorctl: name=api state=started config=/etc/supervisor/conf.d/api.conf
+  - name: Shut down default nginx process
+    service: name=nginx state=stoppped enabled=no
+
+  - name: Start supervisor process
+    supervisorctl: name=api state=started config=/etc/supervisor/conf.d/supervisor.conf
