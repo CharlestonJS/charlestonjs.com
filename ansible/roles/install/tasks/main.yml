@@ -1,2 +1,14 @@
-----
--  - name: Install application dependencies
+---
+  - name: Install server files
+    copy: src=charlestonjs dest=/etc/nginx/sites-available/charlestonjs
+
+  - name: Enable site
+    shell: ln -s /etc/nginx/sites-available/charlestonjs /etc/nginx/sites-enabled
+    ignore_errors: yes
+
+  - name: Install application dependencies
+    npm: path=/var/www/html/charlestonjs/api
+
+  - name: Install supervisor config
+    copy: src=api.conf dest=/etc/supervisor/conf.d/api.conf
+    ignore_errors: yes
