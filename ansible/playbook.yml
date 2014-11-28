@@ -6,5 +6,6 @@
   roles:
     - system
     - nginx
+    - node
     - cleanup
-    - start
+#    - start
