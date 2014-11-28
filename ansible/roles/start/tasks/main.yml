@@ -3,4 +3,4 @@
     service: name=nginx state=stoppped enabled=no
 
   - name: Start supervisor process
-    supervisorctl: name=api state=started config=/etc/supervisor/conf.d/supervisor.conf
+    supervisorctl: name=charlestonjs state=started config=/etc/supervisor/conf.d/supervisor.conf

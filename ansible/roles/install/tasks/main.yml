@@ -1,24 +1,17 @@
 ---
-  - name: Install server files
+  - name: Install application dependencies
+    npm: path=/var/www/html/charlestonjs/api
+
+  - name: Install supervisor config
+    copy: src=supervisor.conf dest=/etc/supervisor/conf.d/supervisor.conf
+    ignore_errors: yes
+
+  - name: Install nginx config
+    copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+  - name: Install site config
     copy: src=charlestonjs dest=/etc/nginx/sites-available/charlestonjs
 
   - name: Enable site
     shell: ln -s /etc/nginx/sites-available/charlestonjs /etc/nginx/sites-enabled
     ignore_errors: yes
-
-  - name: Install application dependencies
-    npm: path=/var/www/html/charlestonjs/api
-
-  - name: Install supervisor api config
-    copy: src=api.conf dest=/etc/supervisor/conf.d/api.conf
-    ignore_errors: yes
-
-  - name: Install supervisor nginx config
-    copy: src=nginx.conf dest=/etc/supervisor/conf.d/nginx.conf
-    ignore_errors: yes
-
-  - name: Remove default nginx config
-    shell: rm /etc/nginx/nginx.conf
-
-  - name: Install custom nginx config
-    copy: src=nginx.conf dest=/etc/nginx/nginx.conf
