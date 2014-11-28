@@ -1,6 +1,0 @@
----
-  - name: Install nodejs repository
-    shell: curl -sL https://deb.nodesource.com/setup | sudo bash -
-
-  - name: Install nodejs and npm
-    apt: update_cache=yes name=nodejs force=yes
