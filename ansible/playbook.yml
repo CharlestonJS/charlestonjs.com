@@ -1,5 +1,5 @@
 ---
-- name: Charleston JS Server
+- name: Charleston JS
   hosts: all
   sudo: yes
   user: vagrant
