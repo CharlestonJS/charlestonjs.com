@@ -1,5 +1,11 @@
 INSTALLATION:
 
+1. Download & install (virtualbox)[https://www.virtualbox.org/]
+2. Download & install (vagrant)[https://www.vagrantup.com/]
+3. Clone the repo
+4. Cd into the repo directory and run `vagrant up --provision`
+5. Browse to http://localhost:8080
+
 1. Fork the repo
   - cd into the directory you want to install into
   EG: cd ~/Dev/Projects
