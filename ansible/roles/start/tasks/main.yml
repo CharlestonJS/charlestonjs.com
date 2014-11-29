@@ -1,6 +1,3 @@
 ---
-  - name: Shut down default nginx process
-    service: name=nginx state=stoppped enabled=no
-
   - name: Start supervisor process
     supervisorctl: name=charlestonjs state=started config=/etc/supervisor/conf.d/supervisor.conf

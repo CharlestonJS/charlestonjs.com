@@ -15,3 +15,11 @@
   - name: Enable site
     shell: ln -s /etc/nginx/sites-available/charlestonjs /etc/nginx/sites-enabled
     ignore_errors: yes
+
+  - name: Disabled default site
+    shell: rm /etc/nginx/sites-enabled/default
+    ignore_errors: yes
+
+  - name: Remove default index html file
+    shell: rm /var/wwww/html/index.nginx-debian.html
+    ignore_errors: yes
