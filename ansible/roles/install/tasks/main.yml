@@ -2,9 +2,11 @@
   - name: Install application dependencies
     npm: path=/var/www/html/charlestonjs
 
-  - name: Install supervisor config
-    copy: src=supervisor.conf dest=/etc/supervisor/conf.d/supervisor.conf
-    ignore_errors: yes
+  - name: Install charlestonjs supervisor config
+    copy: src=supervisor_charlestonjs.conf dest=/etc/supervisor/conf.d/supervisor_charlestonjs.conf
+
+  - name: Install nginx supervisor config
+    copy: src=supervisor_nginx.conf dest=/etc/supervisor/conf.d/supervisor_nginx.conf
 
   - name: Install nginx config
     copy: src=nginx.conf dest=/etc/nginx/nginx.conf
@@ -16,10 +18,6 @@
     shell: ln -s /etc/nginx/sites-available/charlestonjs /etc/nginx/sites-enabled
     ignore_errors: yes
 
-  - name: Disabled default site
-    shell: rm /etc/nginx/sites-enabled/default
-    ignore_errors: yes
-
-  - name: Remove default index html file
-    shell: rm /var/wwww/html/index.nginx-debian.html
+  - name: Disable default site
+    shell: unlink /etc/nginx/sites-enabled/default
     ignore_errors: yes
