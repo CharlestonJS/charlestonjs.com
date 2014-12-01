@@ -1,11 +1,11 @@
 data/
-node_modules
+node_modules/
 dist/*
 .DS_Store
-.sass-cache
-.tmp/
-bower_components
-.vagrant
 .sass-cache/
 .tmp/
+bower_components/
+.vagrant/
+.sass-cache/
 *.log
+.idea/
