@@ -5,3 +5,4 @@ INSTALLATION:
 3. Clone the repo
 4. Cd into the repo directory and run `vagrant up --provision`
 5. Browse to http://localhost:8080
+6. Run `vagrant down` to shut down and `vagrant up` to bring the server back up
