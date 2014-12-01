@@ -1,6 +1,6 @@
 ---
   - name: Install application dependencies
-    npm: path=/var/www/html/charlestonjs/api
+    npm: path=/var/www/html/charlestonjs
 
   - name: Install supervisor config
     copy: src=supervisor.conf dest=/etc/supervisor/conf.d/supervisor.conf
