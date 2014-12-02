@@ -1,0 +1,22 @@
+{
+  "name": "charlestonjs.com",
+  "version": "0.0.0",
+  "homepage": "https://github.com/CharlestonJS/charlestonjs.com",
+  "authors": [
+    "Andre Dublin <81dublin@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}
