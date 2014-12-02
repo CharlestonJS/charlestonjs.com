@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.name = "charlestonjs"
   end
 
-  config.vm.provision "ansible" do |ansible|
+  config.vm.provision "ansible" , run: "always" do |ansible|
     ansible.verbose = "v"
     ansible.playbook = "ansible/playbook.yml"
   end
