@@ -1,15 +1,15 @@
 module.exports = function () {
   'use strict';
-  const express = require('express');
-  const path = require('path');
-  const favicon = require('serve-favicon');
-  const logger = require('morgan');
-  const cookieParser = require('cookie-parser');
-  const bodyParser = require('body-parser');
-  const fs = require('fs');
+  var express = require('express');
+  var path = require('path');
+  var favicon = require('serve-favicon');
+  var logger = require('morgan');
+  var cookieParser = require('cookie-parser');
+  var bodyParser = require('body-parser');
+  var fs = require('fs');
   //const router = express.Router();
 
-  const routes = require('./routes/index');
+  var routes = require('./routes/index');
 
   //fs.readdirSync(__dirname + '/routes', function (err, files) {
   //  if (err) {
@@ -22,7 +22,7 @@ module.exports = function () {
   //  });
   //});
 
-  const app = express();
+  var app = express();
 
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
