@@ -3,4 +3,4 @@
     apt_repository: repo='ppa:nginx/stable'
 
   - name: Install nginx
-    apt: update_cache=yes name=nginx force=yes
+    apt: update_cache=yes name=nginx

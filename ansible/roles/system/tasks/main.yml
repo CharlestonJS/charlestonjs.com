@@ -3,7 +3,7 @@
     apt: update_cache=yes upgrade=yes force=yes
 
   - name: Install locales
-    apt: name=locales force=yes state=present
+    apt: name=locales
 
   - name: Set timezone to eastern
     shell: echo "US/Eastern" > /etc/timezone \
@@ -15,16 +15,19 @@
            DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
   - name: Installing python software
-    apt: name=python-software-properties force=yes state=present
+    apt: name=python-software-properties
 
   - name: Install software properties
-    apt: name=software-properties-common force=yes state=present
+    apt: name=software-properties-common
 
   - name: Install build essential
     apt: name=build-essential
 
+  - name: Install git
+    apt: name=git
+
   - name: Install zlib
-    apt: name=zlibc force=yes state=present
+    apt: name=zlibc
 
   - name: Install supervisor
-    apt:  name=supervisor force=yes state=present
+    apt: name=supervisor

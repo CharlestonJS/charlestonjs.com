@@ -1,6 +1,12 @@
 ---
-  - name: Install application dependencies
+  - name: Install npm application dependencies
     npm: path=/var/www/html/charlestonjs
+
+  - name: Install bower
+    npm: name=bower global=yes
+
+  - name: Install bower application dependencies
+    shell: bower install --allow-root /var/www/html/charlestonjs
 
   - name: Install charlestonjs supervisor config
     copy: src=supervisor_charlestonjs.conf dest=/etc/supervisor/conf.d/supervisor_charlestonjs.conf
