@@ -7,6 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var livereload = require('livereload');
 //const router = express.Router();
 
 var routes = require('./routes/index');
@@ -28,18 +29,21 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.set('env', process.env.NODE_ENV || 'development');
+
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 if (app.get('env') === 'development') {
-  app.use(require('connect-livereload')({
-    port: 35729
-  }));
+  app.use(logger('dev'));
+  var server = livereload.createServer();
+  server.watch(__dirname);
+} else {
+  app.use(logger('combined'));
 }
 
 app.use('/', routes);

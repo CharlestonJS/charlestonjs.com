@@ -15,6 +15,7 @@
     "jade": "~1.6.0"
   },
   "devDependencies": {
-    "connect-livereload": "^0.5.2"
+    "connect-livereload": "^0.5.2",
+    "livereload": "~0.3.4"
   }
 }
