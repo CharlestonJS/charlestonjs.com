@@ -8,20 +8,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var livereload = require('livereload');
-//const router = express.Router();
+var router = express.Router();
 
-var routes = require('./routes/index');
-
-//fs.readdirSync(__dirname + '/routes', function (err, files) {
-//  if (err) {
-//    return;
-//  }
-//
-//  files.forEach(function (file) {
-//    let fileName = file.substr(0, file.indexOf('.'));
-//    require('./routes/', + fileName)(router);
-//  });
-//});
+fs.readdirSync(__dirname + '/routes').forEach(function (file) {
+  var name = file.substr(0, file.indexOf('.'));
+  require('./routes/' + name)(router);
+});
 
 var app = express();
 
