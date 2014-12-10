@@ -23,13 +23,6 @@ app.set('view engine', 'jade');
 
 app.set('env', process.env.NODE_ENV || 'development');
 
-// uncomment after placing your favicon in /public
-app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
 if (app.get('env') === 'development') {
   app.use(logger('dev'));
   var server = livereload.createServer();
@@ -37,6 +30,13 @@ if (app.get('env') === 'development') {
 } else {
   app.use(logger('combined'));
 }
+
+// uncomment after placing your favicon in /public
+app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

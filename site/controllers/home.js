@@ -1,5 +1,5 @@
 'use strict';
 
 exports.index = function (req, res) {
-  res.render('index', {title: 'Charleston JS'});
+  res.render('home/index', {title: 'Charleston JS'});
 };
