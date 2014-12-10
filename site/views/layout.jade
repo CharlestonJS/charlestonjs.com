@@ -5,6 +5,14 @@ html
         link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
     body
-        block content
+        .wrapper
+            .box
+                .row
+                    include ./shared/sidebar.jade
+                    #main.column.col-sm-9
+                        .padding
+                            .full.col-sm-9
+                                block content
+                                include ./shared/footer.jade
         script.
             document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?sniperver=1"></' + 'script>')

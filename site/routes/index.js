@@ -1,4 +1,4 @@
-var homeCtrl = require('./controllers/home');
+var homeCtrl = require('./../controllers/home');
 
 module.exports = function (router) {
   'use strict';
