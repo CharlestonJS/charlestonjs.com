@@ -10,6 +10,7 @@ var express = require('express'),
   fs = require('fs'),
   livereload = require('livereload'),
   router = express.Router(),
+  passport = require('passport'),
   app = express();
 
 // view engine setup
@@ -35,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'secret',
   resave: false,
-  saveUnintialized: true
+  saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
