@@ -32,13 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-if (app.get('env') == 'development') {
-  app.use(express.session({secret: 'secret'}));
-} else {
-  app.use(express.session({secret: process.env.SESSION_SECRET}));
-}
-
+app.use(express.session({secret: process.env.SESSION_SECRET || 'secret'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
