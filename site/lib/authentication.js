@@ -1,10 +1,10 @@
 'use strict';
 
 var passport = require('passport'),
-    TwitterStrategy = require('passport-twitter').Strategy,
-    GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
-    GithubStrategy = require('passport-github').Strategy,
-    MeetupStrategy = require('passport-meetup').Strategy;
+  TwitterStrategy = require('passport-twitter').Strategy,
+  GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
+  GithubStrategy = require('passport-github').Strategy,
+  MeetupStrategy = require('passport-meetup').Strategy;
 
 passport.use(new TwitterStrategy({
     consumerKey: process.env.TWITTER_CONSUMER_KEY || 'fillmein',

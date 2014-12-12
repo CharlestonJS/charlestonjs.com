@@ -1,15 +1,16 @@
 'use strict';
 
 var express = require('express'),
-    path = require('path'),
-    favicon = require('serve-favicon'),
-    logger = require('morgan'),
-    cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser'),
-    fs = require('fs'),
-    livereload = require('livereload'),
-    router = express.Router(),
-    app = express();
+  session = require('express-session'),
+  path = require('path'),
+  favicon = require('serve-favicon'),
+  logger = require('morgan'),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  fs = require('fs'),
+  livereload = require('livereload'),
+  router = express.Router(),
+  app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,9 +30,13 @@ if (app.get('env') === 'development') {
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
+app.use(cookieParser(process.env.SESSION_SECRET || 'secret'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.session({secret: process.env.SESSION_SECRET || 'secret'}));
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'secret',
+  resave: false,
+  saveUnintialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
