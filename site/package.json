@@ -12,7 +12,12 @@
     "morgan": "~1.3.0",
     "serve-favicon": "~2.1.3",
     "debug": "~2.0.0",
-    "jade": "~1.6.0"
+    "jade": "~1.6.0",
+    "passport": "~0.2.1",
+    "passport-twitter": "~1.0.2",
+    "passport-google-oauth": "~0.1.5",
+    "passport-github": "~0.1.5",
+    "passport-meetup": "~0.1.2"
   },
   "devDependencies": {
     "connect-livereload": "^0.5.2",

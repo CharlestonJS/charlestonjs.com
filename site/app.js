@@ -10,11 +10,6 @@ var fs = require('fs');
 var livereload = require('livereload');
 var router = express.Router();
 
-fs.readdirSync(__dirname + '/routes').forEach(function (file) {
-  var name = file.substr(0, file.indexOf('.'));
-  require('./routes/' + name)(router);
-});
-
 var app = express();
 
 // view engine setup
@@ -37,6 +32,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+if (app.get('env') == 'development') {
+  app.use(express.session({secret: 'secret'}));
+} else {
+  app.use(express.session({secret: process.env.SESSION_SECRET}));
+}
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+fs.readdirSync(__dirname + '/routes').forEach(function (file) {
+  var name = file.substr(0, file.indexOf('.'));
+  require('./routes/' + name)(router);
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
