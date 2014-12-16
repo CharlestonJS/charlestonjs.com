@@ -1,12 +1,16 @@
-var siteCtrl = require('./../controllers/site');
+'use strict';
 
-module.exports = function (router) {
-  'use strict';
-  router.route('/').get(function (req, res) {
-    siteCtrl.index(req, res);
-  });
+var siteCtrl = require('./../controllers/site'),
+    express = require('express'),
+    router = express.Router();
 
-  router.route('/login').get(function (req, res) {
+router.get('/', function (req, res) {
+    siteCtrl.home(req, res);
+});
+
+router.get('/login', function (req, res) {
     siteCtrl.login(req, res);
-  });
-};
+});
+
+
+module.exports = router;

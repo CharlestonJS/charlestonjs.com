@@ -1,36 +1,39 @@
-var passport = require('passport');
+'use strict';
 
-module.exports = function (router) {
-  'use strict';
-  router.route('/auth/meetup').get(passport.authenticate('meetup'));
+var passport = require('passport'),
+    express = require('express'),
+    router = express.Router();
 
-  router.route('/auth/meetup/callback').get(passport.authenticate('meetup', {failureRedirect: '/login'}),
+router.get('/meetup', passport.authenticate('meetup'));
+
+router.get('/meetup/callback', passport.authenticate('meetup', {failureRedirect: '/login'}),
     function (req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
+        // Successful authentication, redirect home.
+        res.redirect('/');
     });
 
-  router.route('/auth/github').get(passport.authenticate('github'));
+router.get('/github', passport.authenticate('github'));
 
-  router.route('/auth/github/callback').get(passport.authenticate('github', {failureRedirect: '/login'}),
+router.get('/github/callback', passport.authenticate('github', {failureRedirect: '/login'}),
     function (req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
+        // Successful authentication, redirect home.
+        res.redirect('/');
     });
 
-  router.route('/auth/google').get(passport.authenticate('google', {scope: 'https://www.google.com/m8/feeds'}));
+router.get('/google', passport.authenticate('google', {scope: 'https://www.google.com/m8/feeds'}));
 
-  router.route('/auth/google/callback').get(passport.authenticate('google', {failureRedirect: '/login'}),
+router.get('/google/callback', passport.authenticate('google', {failureRedirect: '/login'}),
     function (req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
+        // Successful authentication, redirect home.
+        res.redirect('/');
     });
 
-  router.route('/auth/twitter').get(passport.authenticate('twitter'));
+router.get('/twitter', passport.authenticate('twitter'));
 
-  router.route('/auth/twitter/callback').get(passport.authenticate('twitter', {failureRedirect: '/login'}),
+router.get('/twitter/callback', passport.authenticate('twitter', {failureRedirect: '/login'}),
     function (req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
+        // Successful authentication, redirect home.
+        res.redirect('/');
     });
-};
+
+module.exports = router;
